@@ -1,0 +1,19 @@
+[0] Config.pm:329> INFO - This is Biber 2.22
+[1] Config.pm:332> INFO - Logfile is 'PEAS.blg'
+[322] biber-MSWIN64:342> INFO - === 
+[412] Biber.pm:421> INFO - Reading 'PEAS.bcf'
+[810] Biber.pm:1002> INFO - Found 1 citekeys in bib section 0
+[875] Biber.pm:4487> INFO - Processing section 0
+[908] Biber.pm:4680> INFO - Looking for bibtex file 'BIB.bib' for section 0
+[988] bibtex.pm:1713> INFO - LaTeX decoding ...
+[1002] bibtex.pm:1519> INFO - Found BibTeX data source 'BIB.bib'
+[1123] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1124] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1124] Biber.pm:4307> INFO - Sorting list 'apa/apasortcite//global/global/global' of type 'entry' with template 'apa' and locale 'en-US'
+[1124] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
+[1149] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1149] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1150] Biber.pm:4307> INFO - Sorting list 'apa/global//global/global/global' of type 'entry' with template 'apa' and locale 'en-US'
+[1150] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
+[1153] bbl.pm:676> INFO - Writing 'PEAS.bbl' with encoding 'UTF-8'
+[1157] bbl.pm:779> INFO - Output to PEAS.bbl

@@ -3,14 +3,13 @@ class Mapa:
         self.ciudades = ciudades
         self.camino = dict.fromkeys(self.ciudades,"")
 
-        # Relaciona el nombre de cada ciudad con su posición.
         self.indices = {}
 
         for posicion in range(len(ciudades)):
             ciudad = ciudades[posicion]
             self.indices[ciudad] = posicion
 
-        # Crear matriz llena de ceros.
+        
         cantidad = len(ciudades)
         self.matriz = []
 
@@ -22,7 +21,7 @@ class Mapa:
         fila = self.indices[ciudad1]
         columna = self.indices[ciudad2]
 
-        # El mapa permite viajar en ambos sentidos.
+        
         self.matriz[fila][columna] = 1
         self.matriz[columna][fila] = 1
 
@@ -45,7 +44,9 @@ class Mapa:
                 nuevos.append(vecino)
         return nuevos
 
-    def buscar_camino(self,ciudad,destino):
+    def buscar_camino_Profundidad(self,ciudad,destino):
+        self.camino = dict.fromkeys(self.ciudades, "")
+        self.camino[ciudad] = "origen"
         cola = [ciudad]
 
         while cola:
@@ -55,18 +56,49 @@ class Mapa:
             nuevos = self.recorrer_camino(actual)
             cola.extend(nuevos)
 
+        if not self.camino[destino] and destino != ciudad:
+            print(f"No existe un camino entre {ciudad} y {destino}")
+            return
+    
         recorrido = [destino]
         next_nodo = destino
         while True:
             next_nodo=self.camino[next_nodo]
-            if next_nodo == "origen":
+            if next_nodo == "origen" or next_nodo=="":
                 break
             recorrido.append(next_nodo)
 
+        recorrido.reverse()
         for nodo in recorrido:
             print(nodo)
 
+    def buscar_camino_Amplitud(self,ciudad,destino):
+        self.camino = dict.fromkeys(self.ciudades, "")
+        self.camino[ciudad] = "origen"
+        cola = [ciudad]
 
+        while cola:
+            actual = cola.pop(0)
+            if actual == destino:
+                break
+            nuevos = self.recorrer_camino(actual)
+            cola.extend(nuevos)
+
+        if not self.camino[destino] and destino != ciudad:
+            print(f"No existe un camino entre {ciudad} y {destino}")
+            return
+    
+        recorrido = [destino]
+        next_nodo = destino
+        while True:
+            next_nodo=self.camino[next_nodo]
+            if next_nodo == "origen" or next_nodo=="":
+                break
+            recorrido.append(next_nodo)
+
+        recorrido.reverse()
+        for nodo in recorrido:
+            print(nodo)
 
     def mover(self, ciudad_actual, destino):
         fila = self.indices[ciudad_actual]
@@ -149,18 +181,13 @@ def main():
     mapa.set_origin(ciudad_actual)
 
     print("Ciudad inicial:", ciudad_actual)
-    print("Ciudades disponibles:", mapa.obtener_vecinos(ciudad_actual))
 
-    # Ejemplo de cómo desplazarse, sin resolver el ejercicio.
     destino = input("Escribe la ciudad a la que quieres moverte: ")
 
-    nueva_ciudad = mapa.mover(ciudad_actual, destino)
-
-    if nueva_ciudad is not None:
-        ciudad_actual = nueva_ciudad
-        print("Ahora estás en:", ciudad_actual)
-    else:
-        print("No existe una conexión directa con", destino)
+    print ("Camino por profundidad:")
+    mapa.buscar_camino_Profundidad(ciudad_actual,destino)
+    print ("Camino por Amplitud \n")
+    mapa.buscar_camino_Amplitud(ciudad_actual, destino)
 
 
 if __name__ == "__main__":

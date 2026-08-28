@@ -1,0 +1,27 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsthm}
+\usepackage[backend=biber, style=apa]{biblatex}
+\addbibresource{BIB.bib}
+
+\newtheorem{definition}{Definición}
+
+\begin{document}
+
+\begin{definition}[PEAS]
+Marco usado en inteligencia artificial para especificar con precisión el ``entorno de trabajo'' de un agente racional. Se trata de un acrónimo para:
+
+\begin{description}
+    \item[\textit{Performance measure} (medida de desempeño):] Define qué tan exitoso es el comportamiento del agente.
+    \item[\textit{Environment} (entorno):] El mundo en que opera el agente, y con el que interactúa.
+    \item[\textit{Actuators} (actuadores):] Mecanismos con los que el agente actúa sobre el entorno.
+    \item[\textit{Sensors} (sensores):] Mecanismos a través de los que el agente percibe el entorno.
+\end{description}
+
+Russell y Norvig proponen este marco precisamente porque, antes de diseñar un agente racional, hay que dejar completamente claro cuál es su medida de éxito, en qué entorno actúa, con qué puede actuar y qué puede percibir \parencite{russell2020artificial}.
+\end{definition}
+
+\printbibliography
+
+\end{document}
